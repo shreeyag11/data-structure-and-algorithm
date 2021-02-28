@@ -15,7 +15,7 @@ public class Main {
         list.addLast(13);
         list.addLast(14);
         list.addLast(15);
-//        System.out.println(list.size());
+        System.out.println(list.size());
         list.print();
 //        list.deleteFirst();
 //        list.print();
@@ -32,6 +32,7 @@ public class Main {
 //        int[] arr1 = list.toArray();
 //        System.out.println(Arrays.toString(arr1));
 //        System.out.println(list.getKthNodeFromEnd(6));
-        list.printMiddle();
+//        list.printMiddle();
+        System.out.println(list.hasLoop());
     }
 }

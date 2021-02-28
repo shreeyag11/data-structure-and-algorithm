@@ -181,4 +181,22 @@ public class LinkedList {
         else
             System.out.println(slow.value + " and " + slow.next.value);
     }
+
+    // Check if a Linked List has loop
+    public boolean hasLoop() {
+        if(isEmpty())
+            throw new IllegalStateException();
+
+        Node fast = first;
+        Node slow = first;
+
+        while(fast != null && fast.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+            if(fast == slow)
+                return true;
+        }
+
+        return false;
+    }
 }
