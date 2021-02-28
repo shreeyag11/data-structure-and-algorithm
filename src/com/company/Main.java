@@ -32,6 +32,6 @@ public class Main {
         list.reverse();
         int[] arr1 = list.toArray();
         System.out.println(Arrays.toString(arr1));
-
+        System.out.println(list.getKthNodeFromEnd(6));
     }
 }

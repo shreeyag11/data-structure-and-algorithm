@@ -142,4 +142,24 @@ public class LinkedList {
         }
         last.next = null;
     }
+
+    // Kth node from end
+    public int getKthNodeFromEnd(int k) {
+        if(k <= 0)
+            return -1;
+        Node fast = first;
+        Node slow = first;
+        while(k > 0) {
+            fast = fast.next;
+            if (fast == null) {
+                throw new IllegalArgumentException();
+            }
+            k--;
+        }
+        while(fast != null) {
+            fast = fast.next;
+            slow = slow.next;
+        }
+        return slow.value;
+    }
 }
