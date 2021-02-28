@@ -162,4 +162,23 @@ public class LinkedList {
         }
         return slow.value;
     }
+
+    // Find middle of a Linked List
+    public void printMiddle() {
+        if(isEmpty())
+            throw new IllegalStateException();
+
+        Node fast = first;
+        Node slow = first;
+
+        while(fast != null && fast.next != null ) {
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+
+        if(fast == last)
+            System.out.println(slow.value);
+        else
+            System.out.println(slow.value + " and " + slow.next.value);
+    }
 }
