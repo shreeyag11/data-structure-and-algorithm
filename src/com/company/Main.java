@@ -4,7 +4,11 @@ public class Main {
 
     public static void main(String[] args) {
         Stacks st = new Stacks();
-        System.out.println(st.reverse("abcd"));
-        System.out.println(st.balancedExpression("(())()"));
+        st.push(2);
+        st.push(3);
+        st.push(4);
+        st.pop();
+        System.out.println(st.peek());
+        st.print();
     }
 }
