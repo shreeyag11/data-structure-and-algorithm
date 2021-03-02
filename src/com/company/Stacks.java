@@ -9,9 +9,10 @@ public class Stacks {
 
     private final List<Character> leftBrackets = Arrays.asList('(', '[', '{', '<');
     private final List<Character> rightBrackets = Arrays.asList(')', ']', '}', '>');
-
     private int[] stack;
     private int ptr;
+
+    
 
     public Stacks() {
         stack = new int[10];
