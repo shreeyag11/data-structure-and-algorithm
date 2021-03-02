@@ -1,18 +1,17 @@
 package com.company;
 
+import java.util.ArrayDeque;
+import java.util.Queue;
+
 public class Main {
 
     public static void main(String[] args) {
-        MinStack st = new MinStack();
-        st.push(3);
-        st.push(2);
-        System.out.println(st.getMin());
-        st.push(1);
-        System.out.println(st.getMin());
-        st.push(7);
-        System.out.println(st.getMin());
-        st.push(8);
-//        System.out.println(st.pop());
-        System.out.println(st.getMin());
+        Queue<Integer> queue = new ArrayDeque<>();
+        queue.add(10);
+        queue.add(20);
+        queue.add(30);
+        queue.add(40);
+        ReverseQueue.reverseQueue(queue);
     }
+
 }
