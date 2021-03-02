@@ -12,8 +12,6 @@ public class Stacks {
     private int[] stack;
     private int ptr;
 
-    
-
     public Stacks() {
         stack = new int[10];
         ptr = -1;
