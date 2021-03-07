@@ -1,9 +1,11 @@
 package com.company;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
-public class FirstNonRepeatingChar {
+public class CharFinder {
 
     public char firstNonRepeatingChar(String s) {
 
@@ -23,6 +25,19 @@ public class FirstNonRepeatingChar {
         for (var c : chars) {
             if(unique.get(c) == 1)
                 return c;
+        }
+
+        return Character.MIN_VALUE;
+    }
+
+    public char findFirstRepeatedChar(String str) {
+        Set<Character> set = new HashSet<>();
+
+        for(Character ch : str.toCharArray()) {
+            if(set.contains(ch))
+                return ch;
+
+            set.add(ch);
         }
 
         return Character.MIN_VALUE;

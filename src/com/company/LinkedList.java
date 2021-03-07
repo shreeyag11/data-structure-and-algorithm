@@ -2,7 +2,7 @@ package com.company;
 
 import java.util.NoSuchElementException;
 
-public class LinkedList {
+public class LinkedList<E> {
     private class Node {
         private int value;
         private Node next;
