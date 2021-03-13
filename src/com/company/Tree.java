@@ -156,6 +156,17 @@ public class Tree {
         return Math.min(Math.min(left, right), root.value);
     }
 
+    public int size() {
+        return size(root);
+    }
+
+    private int size(Node root) {
+        if(root == null)
+            return 0;
+
+        return 1 + size(root.left) + size(root.right);
+    }
+
     public int height() {
         return height(root);
     }
