@@ -156,6 +156,20 @@ public class Tree {
         return Math.min(Math.min(left, right), root.value);
     }
 
+    public int countLeaves() {
+        return countLeaves(root);
+    }
+
+    private int countLeaves(Node root) {
+        if(root == null)
+            return 0;
+
+        if (isLeaf(root))
+            return 1;
+
+        return countLeaves(root.left) + countLeaves(root.right);
+    }
+
     public int size() {
         return size(root);
     }
