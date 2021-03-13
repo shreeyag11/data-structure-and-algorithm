@@ -11,10 +11,18 @@ public class Main {
         tree.insert(6);
         tree.insert(8);
         tree.insert(10);
-        tree.preOrder();
-        tree.postOrder();
-        tree.inOrder();
-        System.out.println(tree.min());
+        Tree tree1 = new Tree();
+        tree1.insert(7);
+        tree1.insert(4);
+        tree1.insert(9);
+        tree1.insert(1);
+        tree1.insert(6);
+        tree1.insert(10);
+        System.out.println(tree.isEqual(tree1));
+//        tree.preOrder();
+//        tree.postOrder();
+//        tree.inOrder();
+//        System.out.println(tree.min());
 //        System.out.println(tree.find(200));
 
     }

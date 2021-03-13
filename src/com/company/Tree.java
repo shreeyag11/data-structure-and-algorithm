@@ -71,6 +71,39 @@ public class Tree {
         System.out.print(root.value +" ");
     }
 
+    public void inOrder() {
+        System.out.println("In-order: ");
+        inOrder(root);
+        System.out.println();
+    }
+
+    private void inOrder(Node root) {
+        if(root == null)
+            return;
+        inOrder(root.left);
+        System.out.print(root.value +" ");
+        inOrder(root.right);
+    }
+
+    public boolean isEqual(Tree other) {
+        if(other == null)
+            return false;
+
+        return isEqual(root, other.root);
+    }
+
+    private boolean isEqual(Node root1, Node root2) {
+        if(root1 == null && root2 == null)
+            return true;
+
+        if(root1 != null && root2 != null)
+            return root1.value == root2.value &&
+                    isEqual(root1.left, root2.left) &&
+                     isEqual(root1.right, root2.right);
+
+        return false;
+    }
+
     public int min() {
         return min(root);
     }
@@ -99,20 +132,6 @@ public class Tree {
         return 1 + Math.max(
                 height(root.left),
                 height(root.right));
-    }
-
-    public void inOrder() {
-        System.out.println("In-order: ");
-        inOrder(root);
-        System.out.println();
-    }
-
-    private void inOrder(Node root) {
-        if(root == null)
-            return;
-        inOrder(root.left);
-        System.out.print(root.value +" ");
-        inOrder(root.right);
     }
 
     private boolean isLeaf(Node root) {
