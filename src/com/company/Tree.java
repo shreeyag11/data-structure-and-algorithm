@@ -1,5 +1,8 @@
 package com.company;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Tree {
     private Node root;
 
@@ -83,6 +86,25 @@ public class Tree {
         inOrder(root.left);
         System.out.print(root.value +" ");
         inOrder(root.right);
+    }
+
+    public ArrayList<Integer> printNodesAtDistance(int k) {
+        var list = new ArrayList<Integer>();
+        printNodesAtDistance(root, k, list);
+        return list;
+    }
+
+    private void printNodesAtDistance(Node root, int k, List<Integer> list) {
+        if (root == null)
+            return;
+
+        if(k == 0) {
+            list.add(root.value);
+            return;
+        }
+
+        printNodesAtDistance(root.left, k - 1, list);
+        printNodesAtDistance(root.right, k - 1, list);
     }
 
     public boolean isValidBST() {

@@ -11,20 +11,7 @@ public class Main {
         tree.insert(6);
         tree.insert(8);
         tree.insert(10);
-        Tree tree1 = new Tree();
-        tree1.insert(7);
-        tree1.insert(4);
-        tree1.insert(9);
-        tree1.insert(1);
-        tree1.insert(6);
-        tree1.insert(10);
-        System.out.println(tree.isValidBST());
-//        tree.preOrder();
-//        tree.postOrder();
-//        tree.inOrder();
-//        System.out.println(tree.min());
-//        System.out.println(tree.find(200));
-
+        System.out.println(tree.printNodesAtDistance(2));
     }
 
 }
