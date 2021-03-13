@@ -85,6 +85,22 @@ public class Tree {
         inOrder(root.right);
     }
 
+    public boolean isValidBST() {
+        return isValidBST(root, Integer.MIN_VALUE, Integer.MAX_VALUE);
+    }
+
+    private boolean isValidBST(Node root, int min, int max) {
+        if (root == null)
+            return true;
+
+        if(root.value < min || root.value > max)
+            return false;
+
+        return
+                isValidBST(root.left, min, root.value - 1) &&
+                isValidBST(root.right, root.value + 1, max);
+    }
+
     public boolean isEqual(Tree other) {
         if(other == null)
             return false;

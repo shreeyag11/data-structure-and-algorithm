@@ -18,7 +18,7 @@ public class Main {
         tree1.insert(1);
         tree1.insert(6);
         tree1.insert(10);
-        System.out.println(tree.isEqual(tree1));
+        System.out.println(tree.isValidBST());
 //        tree.preOrder();
 //        tree.postOrder();
 //        tree.inOrder();
