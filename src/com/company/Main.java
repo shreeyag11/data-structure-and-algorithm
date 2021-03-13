@@ -14,6 +14,7 @@ public class Main {
         tree.preOrder();
         tree.postOrder();
         tree.inOrder();
+        System.out.println(tree.min());
 //        System.out.println(tree.find(200));
 
     }

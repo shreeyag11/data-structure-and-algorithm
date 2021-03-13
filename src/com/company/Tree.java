@@ -71,15 +71,29 @@ public class Tree {
         System.out.print(root.value +" ");
     }
 
-    public void height() {
-        height(root);
+    public int min() {
+        return min(root);
+    }
+
+    private int min(Node root) {
+        if(isLeaf(root))
+            return root.value;
+
+        var left = min(root.left);
+        var right = min(root.right);
+
+        return Math.min(Math.min(left, right), root.value);
+    }
+
+    public int height() {
+        return height(root);
     }
 
     private int height(Node root) {
         if(root == null)
             return -1;
 
-        if(root.left == null && root.right == null)
+        if(isLeaf(root))
             return 0;
 
         return 1 + Math.max(
@@ -99,6 +113,10 @@ public class Tree {
         inOrder(root.left);
         System.out.print(root.value +" ");
         inOrder(root.right);
+    }
+
+    private boolean isLeaf(Node root) {
+        return root.left == null && root.right == null;
     }
 
     private class Node {
