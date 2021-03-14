@@ -32,6 +32,7 @@ public class Tree {
         }
     }
 
+    // using iteration
     public boolean find(int value) {
         Node current = root;
         while(current != null) {
@@ -43,6 +44,39 @@ public class Tree {
                 return true;
         }
         return false;
+    }
+
+    // using recursion
+    public boolean contains(int value) {
+        return contains(root, value);
+    }
+
+    private boolean contains(Node root, int value) {
+        if(root == null)
+            return false;
+
+        if(root.value == value)
+            return true;
+
+        return contains(root.left, value) || contains(root.right, value);
+    }
+
+    public boolean areSiblings(int first, int second) {
+        return areSiblings(root, first, second);
+    }
+
+    private boolean areSiblings(Node root, int first, int second) {
+        if(root == null)
+            return false;
+
+        boolean areSiblings = false;
+        if(root.left != null && root.right != null)
+            areSiblings = (root.left.value == first && root.right.value == second) ||
+                    (root.left.value == second && root.right.value == first);
+
+        return areSiblings ||
+                areSiblings(root.left, first, second) ||
+                areSiblings(root.right, first, second);
     }
 
     public void preOrder() {
