@@ -1,5 +1,7 @@
 package com.company;
 
+import javax.lang.model.type.MirroredTypeException;
+
 public class Heap {
 
     private int[] heap;
@@ -97,6 +99,13 @@ public class Heap {
 
         return heap[index] >= heap[left(index)] &&
                 heap[index] >= heap[right(index)];
+    }
+
+    public int max() {
+        if(isEmpty())
+            throw new IllegalStateException();
+
+        return heap[0];
     }
 
 }
