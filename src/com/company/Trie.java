@@ -1,6 +1,8 @@
 package com.company;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class Trie {
 
@@ -94,5 +96,39 @@ public class Trie {
         if (!child.hasChildren() && !child.isEndOfWord) {
             root.removeChild(ch);
         }
+    }
+
+    public List<String> autoComplete(String prefix) {
+        List<String> words = new ArrayList<>();
+        var lastNode = findLastNodeOf(prefix);
+
+        autoComplete(lastNode, prefix, words);
+
+        return words;
+    }
+
+    private void autoComplete(Node root, String word, List<String> words) {
+        if(root == null)
+            return;
+
+        if (root.isEndOfWord)
+            words.add(word);
+
+        for (var child : root.getChildren())
+            autoComplete(child, word + String.valueOf(child.value), words);
+    }
+
+    private Node findLastNodeOf(String prefix) {
+        if(prefix == null)
+            return null;
+
+        Node curr = root;
+
+        for(char ch : prefix.toCharArray()) {
+            if(!curr.hasChild(ch))
+                return null;
+            curr = curr.getChild(ch);
+        }
+        return curr;
     }
 }
