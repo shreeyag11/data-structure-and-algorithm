@@ -18,6 +18,28 @@ public class Heap {
         bubbleUp();
     }
 
+    public int remove() {
+        if(isEmpty()) {
+            throw new IllegalStateException();
+        }
+
+        int temp = heap[0];
+        heap[0] = heap[size - 1];
+        heap[size - 1] = 0;
+        size--;
+
+        int index = 0;
+        while(index <= size && !isValidParent(index)) {
+            swap(index, largerChildIndex(index));
+            index = largerChildIndex(index);
+        }
+        return temp;
+    }
+
+    public boolean isEmpty() {
+        return size == 0;
+    }
+
     public boolean isFull() {
         return size == heap.length;
     }
@@ -48,30 +70,6 @@ public class Heap {
         heap[second] = temp;
     }
 
-    public int remove() {
-        if(isEmpty()) {
-            throw new IllegalStateException();
-        }
-
-        int temp = heap[0];
-        heap[0] = heap[size - 1];
-        heap[size - 1] = 0;
-        size--;
-
-        int index = 0;
-        while(index <= size && !isValidParent(index)) {
-            swap(index, largerChildIndex(index));
-            index = largerChildIndex(index);
-        }
-        return temp;
-    }
-
-    
-
-    public boolean isEmpty() {
-        return size == 0;
-    }
-
     private int largerChildIndex(int index) {
         if(!hasLeftChild(index))
             return index;
@@ -100,6 +98,5 @@ public class Heap {
         return heap[index] >= heap[left(index)] &&
                 heap[index] >= heap[right(index)];
     }
-
 
 }

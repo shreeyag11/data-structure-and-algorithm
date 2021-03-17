@@ -1,0 +1,37 @@
+package com.company;
+
+public class MaxHeap {
+    public static void heapify(int[] arr) {
+        for(int i = arr.length / 2 - 1; i >= 0; i--)
+            heapify(arr, i);
+    }
+
+    private static void heapify(int[] array, int index) {
+        var largerIndex = index;
+        var leftChild = 2 * index + 1;
+        var rightChild = 2 * index + 2;
+
+        if(leftChild < array.length &&
+                array[leftChild] > array[largerIndex]) {
+            largerIndex = leftChild;
+        }
+
+        if(rightChild < array.length &&
+                array[rightChild] > array[largerIndex]) {
+            largerIndex = rightChild;
+        }
+
+        if (index == largerIndex)
+            return;
+
+        swap(array, index, largerIndex);
+        heapify(array, largerIndex);
+    }
+
+    private static void swap(int[] arr, int first, int second) {
+        int temp = arr[first];
+        arr[first] = arr[second];
+        arr[second] = temp;
+    }
+
+}
