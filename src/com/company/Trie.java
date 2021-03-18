@@ -131,4 +131,21 @@ public class Trie {
         }
         return curr;
     }
+
+    public int countWords() {
+        return countWords(root);
+    }
+
+    private int countWords(Node root) {
+        int count = 0;
+
+        if(root.isEndOfWord)
+            count++;
+
+        for(var child : root.getChildren())
+            count += countWords(child);
+
+        return count;
+    }
+
 }
