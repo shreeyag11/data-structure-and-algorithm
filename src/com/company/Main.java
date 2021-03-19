@@ -7,8 +7,8 @@ public class Main {
 
     public static void main(String[] args) {
         int[] arr = {7, 3, 1, 4, 6, 2, 3};
-        CountingSort sorter = new CountingSort();
-        sorter.sort(arr);
+        BucketSort sorter = new BucketSort();
+        sorter.sort(arr, 3);
         System.out.println(Arrays.toString(arr));
     }
 
