@@ -1,15 +1,12 @@
 package com.company;
 
-
-import java.util.Arrays;
-
 public class Main {
 
     public static void main(String[] args) {
-        int[] arr = {7, 3, 1, 4, 6, 2, 3};
-        BucketSort sorter = new BucketSort();
-        sorter.sort(arr, 3);
-        System.out.println(Arrays.toString(arr));
+        StringManipulation sm = new StringManipulation();
+        String str = "Hello";
+        System.out.println(sm.countVowels(str));
+
     }
 
 }
