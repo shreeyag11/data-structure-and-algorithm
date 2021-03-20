@@ -1,10 +1,7 @@
 package com.company;
 
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class StringManipulation {
 
@@ -110,5 +107,21 @@ public class StringManipulation {
             }
 
         return result;
+    }
+
+    public static String sentenceCapitalization(String input) {
+        if (input == null || input.trim().isEmpty())
+            return "";
+
+        String[] words = input
+                            .trim()
+                            .replaceAll(" +", " ")
+                            .split(" ");
+
+        for (int i = 0; i < words.length; i++) {
+            words[i] = words[i].substring(0, 1).toUpperCase() + words[i].substring(1).toLowerCase();
+        }
+
+        return String.join(" ", words);
     }
 }
