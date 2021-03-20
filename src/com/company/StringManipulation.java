@@ -1,8 +1,9 @@
 package com.company;
 
+
 public class StringManipulation {
 
-    public int countVowels(String str) {
+    public static int countVowels(String str) {
         if (str == null)
             return 0;
 
@@ -15,5 +16,27 @@ public class StringManipulation {
         }
 
         return count;
+    }
+
+    public static String reverse(String str) {
+        if (str == null)
+            return "";
+
+        char[] ch = str.toCharArray();
+        int i = 0, j = str.length() - 1;
+
+        while(i < j) {
+            swap(i, j, ch);
+            i++;
+            j--;
+        }
+
+        return String.valueOf(ch);
+    }
+
+    private static void swap(int first, int second, char[] ch) {
+        char temp = ch[first];
+        ch[first] = ch[second];
+        ch[second] = temp;
     }
 }
