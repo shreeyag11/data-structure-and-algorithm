@@ -1,6 +1,9 @@
 package com.company;
 
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class StringManipulation {
 
     public static int countVowels(String str) {
@@ -68,5 +71,22 @@ public class StringManipulation {
 
         return (str1.length() == str2.length()) &&
                 (str1 + str1).contains(str2);
+    }
+
+    public static String removeDuplicates(String input) {
+        if (input == null)
+            return "";
+
+        StringBuilder output = new StringBuilder();
+        Set<Character> set = new HashSet<>();
+
+        for (char ch : input.toCharArray()) {
+            if (!set.contains(ch)) {
+                set.add(ch);
+                output.append(ch);
+            }
+        }
+
+        return output.toString();
     }
 }
