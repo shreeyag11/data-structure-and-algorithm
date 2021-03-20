@@ -3,7 +3,7 @@ package com.company;
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println(StringManipulation.areAnagram("abcd", "bcads"));
+        System.out.println(StringManipulation.isPalindrome(""));
 
     }
 
