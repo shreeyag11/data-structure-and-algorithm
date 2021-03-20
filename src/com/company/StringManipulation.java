@@ -1,7 +1,9 @@
 package com.company;
 
 
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 public class StringManipulation {
@@ -88,5 +90,25 @@ public class StringManipulation {
         }
 
         return output.toString();
+    }
+
+    public static char findMostRepeatedChar(String input) {
+        if (input == null || input.isEmpty())
+            throw new IllegalArgumentException();
+
+        HashMap<Character, Integer> count = new HashMap<>();
+
+        for (char ch : input.toCharArray())
+            count.put(ch, count.getOrDefault(ch, 0) + 1);
+
+        int max = Integer.MIN_VALUE;
+        char result = ' ';
+        for (Character ch : count.keySet())
+            if (count.get(ch) > max) {
+                max = count.get(ch);
+                result = ch;
+            }
+
+        return result;
     }
 }
