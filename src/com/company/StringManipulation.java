@@ -39,4 +39,26 @@ public class StringManipulation {
         ch[first] = ch[second];
         ch[second] = temp;
     }
+
+    public static String reverseWords(String input) {
+        if (input == null)
+            return "";
+
+        String[] inputArr = input.split(" ");
+        int i = 0, j = inputArr.length - 1;
+
+        while(i < j) {
+            swap(i, j, inputArr);
+            i++;
+            j--;
+        }
+
+        return String.join(" ", inputArr);
+    }
+
+    private static void swap(int first, int second, String[] arr) {
+        String temp = arr[first];
+        arr[first] = arr[second];
+        arr[second] = temp;
+    }
 }
