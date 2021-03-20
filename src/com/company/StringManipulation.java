@@ -124,4 +124,26 @@ public class StringManipulation {
 
         return String.join(" ", words);
     }
+
+    public static boolean areAnagram(String str1, String str2) {
+        if (str1 == null || str2 == null ||
+                str1.length() != str2.length())
+            return false;
+
+        final int ALPHA_SIZE = 26;
+        int[] alpha = new int[ALPHA_SIZE];
+
+        str1 = str1.toLowerCase();
+        str2 = str2.toLowerCase();
+        for (int i = 0; i < str1.length(); i++) {
+            alpha[str1.charAt(i) - 'a']++;
+            alpha[str2.charAt(i) - 'a']--;
+        }
+
+        for (int i : alpha)
+            if (i != 0)
+                return false;
+
+            return true;
+    }
 }
